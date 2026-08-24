@@ -35,19 +35,19 @@ public class LancheController {
         return ResponseEntity.status(HttpStatus.CREATED).body(lancheService.cadastrar(dto));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/Buscar-por-id/{id}")
     @Operation(summary = "Buscar lanches por id", description = "Retorna um lanche especifico da CantinaJao")
     public LancheResponseDTO buscarPorId(@PathVariable Long id) {
         return lancheService.buscarPorId(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("Atualizar/{id}")
     @Operation(summary = "Atualiza lanche por id", description = "Atualiza todos o lanche de um lanche existente")
     public ResponseEntity<LancheResponseDTO> atualizar(@Valid @PathVariable Long id,@Valid @RequestBody Lanche lanche){
         return ResponseEntity.status(HttpStatus.CREATED).body(lancheService.atualizar(id, lanche));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Excluir/{id}")
     @Operation(summary = "Excluir lanche por id", description = "Exclui um lanche especifico da CantinaJao")
     public ResponseEntity<Void> remover(@PathVariable Long id) {
         lancheService.remover(id);
